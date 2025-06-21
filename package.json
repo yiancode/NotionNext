@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3001",
     "post-build": "next-sitemap --config next-sitemap.config.js",
     "export": "cross-env EXPORT=true next build && next-sitemap --config next-sitemap.config.js",
     "bundle-report": "cross-env ANALYZE=true next build",
@@ -34,6 +34,7 @@
     "algoliasearch": "^4.18.0",
     "axios": "^1.7.2",
     "feed": "^4.2.2",
+    "heapdump": "^0.3.15",
     "ioredis": "^5.4.2",
     "js-md5": "^0.7.3",
     "lodash.throttle": "^4.1.1",
