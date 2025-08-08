@@ -40,7 +40,7 @@ export function InfoCard(props) {
         </div>
       </div>
 
-      <h2 className='text-3xl font-extrabold mt-3'>{siteConfig('AUTHOR')}</h2>
+      {/* <h2 className='text-3xl font-extrabold mt-3'>{siteConfig('AUTHOR')}</h2> */}
 
       {/* 公告栏 */}
       <Announcement post={notice} style={{ color: 'white !important' }} />

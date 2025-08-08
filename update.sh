@@ -41,7 +41,7 @@ echo "正在将上游仓库的 'main' 分支合并到本地..."
 git merge upstream/main --no-edit || (echo "自动合并失败，请手动解决冲突后再次运行脚本。" && exit 1)
 echo "上游代码同步完成。"
 
-echo "--- 步骤 2: 将更新推送到您自己的仓库 (yian20133213/NotionNext) ---"
+echo "--- 步骤 2: 将更新推送到您自己的仓库 (yiancode/NotionNext) ---"
 echo "正在执行 'git push origin'..."
 # 将合并后的代码推送到你自己的fork仓库
 git push origin main

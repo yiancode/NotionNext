@@ -1,22 +1,23 @@
 {
   "name": "notion-next",
   "version": "4.8.6",
-  "homepage": "https://github.com/tangly1024/NotionNext.git",
+  "homepage": "https://github.com/yiancode/NotionNext.git",
   "license": "MIT",
   "engines": {
     "node": ">=20"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tangly1024/NotionNext.git"
+    "url": "https://github.com/yiancode/NotionNext.git"
   },
   "author": {
-    "name": "tangly",
-    "email": "mail@tangly1024.com",
-    "url": "http://tangly1024.com"
+    "name": "yian",
+    "email": "yian20133213@gmail.com",
+    "url": "https://yianlu.com"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run dev:next",
+    "dev:next": "next dev",
     "build": "next build",
     "start": "next start -p 3001",
     "post-build": "next-sitemap --config next-sitemap.config.js",
