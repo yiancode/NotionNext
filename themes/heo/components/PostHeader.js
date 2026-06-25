@@ -6,6 +6,7 @@ import { siteConfig } from '@/lib/config'
 import { formatDateFmt } from '@/lib/utils/formatDate'
 import SmartLink from '@/components/SmartLink'
 import WavesArea from './WavesArea'
+import CONFIG from '../config'
 
 /**
  * 文章页头
@@ -16,8 +17,11 @@ export default function PostHeader({ post, siteInfo, isDarkMode }) {
   if (!post) {
     return <></>
   }
-  // 文章头图
-  const headerImage = post?.pageCover ? post.pageCover : siteInfo?.pageCover
+  // 文章头图：无封面时用统一默认封面（配置为图片路径）或站点封面
+  const coverDefault = siteConfig('HEO_POST_LIST_COVER_DEFAULT', null, CONFIG)
+  const fallbackCover =
+    typeof coverDefault === 'string' ? coverDefault : siteInfo?.pageCover
+  const headerImage = post?.pageCover ? post.pageCover : fallbackCover
   const ANALYTICS_BUSUANZI_ENABLE = siteConfig('ANALYTICS_BUSUANZI_ENABLE')
   return (
     <div

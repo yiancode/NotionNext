@@ -8,12 +8,11 @@ import TagItemMini from './TagItemMini'
 const BlogPostCard = ({ index, post, showSummary, siteInfo }) => {
   const showPreview =
     siteConfig('HEO_POST_LIST_PREVIEW', null, CONFIG) && post.blockMap
-  if (
-    post &&
-    !post.pageCoverThumbnail &&
-    siteConfig('HEO_POST_LIST_COVER_DEFAULT', null, CONFIG)
-  ) {
-    post.pageCoverThumbnail = siteInfo?.pageCover
+  const coverDefault = siteConfig('HEO_POST_LIST_COVER_DEFAULT', null, CONFIG)
+  if (post && !post.pageCoverThumbnail && coverDefault) {
+    // 配置为图片路径时用该默认图，为 true 时回退站点封面
+    post.pageCoverThumbnail =
+      typeof coverDefault === 'string' ? coverDefault : siteInfo?.pageCover
   }
   const showPageCover =
     siteConfig('HEO_POST_LIST_COVER', null, CONFIG) &&
