@@ -24,12 +24,10 @@ const BlogPostArchive = ({ posts = [], archiveTitle, siteInfo }) => {
           {posts?.map(post => {
             const showPreview =
               siteConfig('HEO_POST_LIST_PREVIEW', null, CONFIG) && post.blockMap
-            if (
-              post &&
-              !post.pageCoverThumbnail &&
-              siteConfig('HEO_POST_LIST_COVER_DEFAULT', null, CONFIG)
-            ) {
-              post.pageCoverThumbnail = siteInfo?.pageCover
+            const coverDefault = siteConfig('HEO_POST_LIST_COVER_DEFAULT', null, CONFIG)
+            if (post && !post.pageCoverThumbnail && coverDefault) {
+              post.pageCoverThumbnail =
+                typeof coverDefault === 'string' ? coverDefault : siteInfo?.pageCover
             }
             const showPageCover =
               siteConfig('HEO_POST_LIST_COVER', null, CONFIG) &&

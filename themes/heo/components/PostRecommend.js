@@ -34,9 +34,12 @@ export default function PostRecommend({ recommendPosts, siteInfo }) {
 
       <div className='grid grid-cols-2 md:grid-cols-3 gap-4'>
         {recommendPosts.map(post => {
+          const coverDefault = siteConfig('HEO_POST_LIST_COVER_DEFAULT', null, CONFIG)
+          const fallbackCover =
+            typeof coverDefault === 'string' ? coverDefault : siteInfo?.pageCover
           const headerImage = post?.pageCoverThumbnail
             ? post?.pageCoverThumbnail
-            : siteInfo?.pageCover
+            : fallbackCover
 
           return (
             <SmartLink

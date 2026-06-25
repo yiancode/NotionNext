@@ -4,6 +4,7 @@ import { useGlobal } from '@/lib/global'
 // import Image from 'next/image'
 import SmartLink from '@/components/SmartLink'
 import { useRouter } from 'next/router'
+import CONFIG from '../config'
 
 /**
  * 最新文章列表
@@ -28,9 +29,12 @@ export default function LatestPostsGroupMini({ latestPosts, siteInfo }) {
       {latestPosts.map(post => {
         const selected =
           currentPath === `${SUB_PATH}/${post.slug}`
+        const coverDefault = siteConfig('HEO_POST_LIST_COVER_DEFAULT', null, CONFIG)
+        const fallbackCover =
+          typeof coverDefault === 'string' ? coverDefault : siteInfo?.pageCover
         const headerImage = post?.pageCoverThumbnail
           ? post.pageCoverThumbnail
-          : siteInfo?.pageCover
+          : fallbackCover
 
         return (
           <SmartLink
